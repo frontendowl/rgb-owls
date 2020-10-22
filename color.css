@@ -1,0 +1,232 @@
+/* ============================ */
+/*            COLORS            */
+/* ============================ */
+:root {
+  --teal: #178fae;
+  --wine: #6c0b2b;
+  --skyblue: #9ab2fb;
+  --rust: #ad5738;
+  --cream: #fffbcc;
+  --lighter: rgba(255, 255, 255, 0.4);
+}
+
+html {
+  padding: 0;
+  font-size: 16px;
+}
+body {
+  font-family: Noto Sans, sans-serif;
+  padding: 0;
+  margin: 0;
+  min-width: 340px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  background-color: #f4f4f4;
+}
+
+/* ----------------- HEADER ------------------ */
+header {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+  color: white;
+
+  border-width: 0 1px;
+}
+header,
+.nav {
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+.default {
+  background-color: white;
+  color: var(--wine);
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0.25rem;
+  padding: 0.5rem 0 0.75rem;
+}
+#rgb {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ------------------ BUTTONS ------------------ */
+input[name="complexity"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background-color: var(--wine);
+  color: white;
+  height: 1.5rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.new-game-btn {
+  height: 100%;
+}
+.new-game-btn:focus {
+  outline: 0;
+}
+
+.hardness {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.hardness > label {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 0 0 0 0.25rem;
+}
+
+.new-game-btn,
+.hardness > label {
+  cursor: pointer;
+
+  padding: 0 0.75rem;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  border: solid transparent;
+  border-width: 1px;
+
+  text-transform: uppercase;
+  background-color: var(--wine);
+  color: white;
+  font: 700 1rem Noto Sans, sans-serif;
+}
+
+.new-game-btn:hover,
+.hardness > label:hover,
+.new-game-btn:focus,
+input[name="complexity"]:focus + label,
+input[name="complexity"]:checked + label {
+  color: var(--wine);
+  border-color: var(--wine);
+}
+
+input[name="complexity"]:checked + label {
+  background-color: white;
+}
+
+.new-game-btn:hover,
+.hardness > label:hover,
+.new-game-btn:focus,
+input[name="complexity"]:focus + label {
+  background: var(--skyblue);
+}
+
+.new-game-btn:focus,
+input[name="complexity"]:focus + label {
+  box-shadow: 0px 0px 4px 4px var(--teal);
+  -webkit-box-shadow: 0px 0px 4px 4px var(--teal);
+  -moz-box-shadow: 0px 0px 4px 4px var(--teal);
+  border-color: white;
+}
+
+/* ------------------ GAME FIELD ------------------ */
+#game {
+  width: 96%;
+  max-width: 600px;
+  margin: 4vh auto 1rem;
+}
+
+/* ---------------- OWLS ---------------- */
+.owl {
+  stroke: #888888;
+  stroke-width: 1;
+  fill: none;
+  transition: fill, stroke, stroke-width 0.2s;
+  cursor: pointer;
+}
+.owl:focus {
+  outline: none;
+  filter: url(#shadow);
+  stroke: white;
+}
+.owl:hover {
+  stroke-width: 6;
+}
+.owl.hidden {
+  stroke: #ff6969;
+  fill: none !important;
+}
+.owl.hidden:hover {
+  stroke-width: 1;
+}
+
+.label {
+  stroke: none;
+  fill: none;
+}
+.color-info {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.color-bkg {
+  width: 104px;
+  height: 20px;
+}
+
+.right-card:hover {
+  stroke: #37af00;
+}
+.other-cards:hover,
+.right-card:hover {
+  cursor: default;
+  stroke-width: 6;
+}
+.other-cards + .label .color-info,
+.right-card + .label .color-info {
+  fill: #ffffff;
+}
+.other-cards + .label .color-bkg,
+.right-card + .label .color-bkg {
+  fill: #000000;
+}
+
+/* ----------------- MEDIA ------------------ */
+@media (max-width: 400px) {
+  html {
+    font-size: 12px;
+  }
+  .nav {
+    padding: 0 0.25rem;
+  }
+  header,
+  .nav {
+    border-radius: 0;
+  }
+  .new-game-btn,
+  .hardness > label {
+    padding: 0 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 640px) {
+  header {
+    border: solid var(--wine);
+    border-width: 0 1px;
+  }
+}
